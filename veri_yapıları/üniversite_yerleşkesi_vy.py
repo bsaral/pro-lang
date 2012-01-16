@@ -1,0 +1,75 @@
+# -*- coding: cp1254 -*-
+
+class UniYer:
+    def __init__(self,ad,soyad):
+        self.ad=ad
+        self.soyad=soyad
+    def isim_cagir(self):
+        print "hoþgeldiniz sayýn",self.ad,self.soyad
+    def tc_no(self):
+        while(1):
+            a=input("\ntc kimlik numaranýzý giriniz:")
+            if len(str(a))==11:
+                print str(a)
+                break;
+            else :
+                print "tc kimlik no 11 haneli olmalýdýr.tekrar deneyiniz."
+
+
+class OgretimUye(UniYer):
+    def __init__(self,ad,soyad):
+        UniYer.__init__(self,ad,soyad)
+
+    def santral(self):
+        a=input("size ulaþmamýz için santral numaranýzý giriniz : ")
+        print a
+
+
+class Ogrenci(UniYer):
+    def __init__(self,ad,soyad):
+        UniYer.__init__(self,ad,soyad)
+    def kimlik(self):
+        while (1):
+            a=input("öðrenci numaranýzý giriniz : ")
+            if len(str(a))==8:
+                print a
+                break
+            else:
+                print "\nöðrenci numarasý 8 haneden oluþur.tekrar deneyiniz"
+
+class Burslu(Ogrenci):
+    def __init__(self,ad,soyad):
+        Ogrenci.__init__(self,ad,soyad)
+
+    def burs(self):
+        a=raw_input("burslu musunuz (e/h) : ")
+        if str(a)=="e":
+            print "harç paranýz 170 tl"
+        else:
+            print "harç paranýz 420 tl "
+            
+        
+        
+    
+            
+    
+    
+        
+        
+#budaki fonksiyonlar deneme amaçlý olarak karýþýk çaðýrýlmýþtýr.
+#kendiniz düzenleyebilirsiniz.
+    
+        
+   
+f1=UniYer("buraya isim gir","buraya soyadýný gir")
+f2=OgretimUye("buraya isim gir","buraya soyadýný gir")
+f3=Ogrenci("buraya isim gir","buraya soyadýný gir")
+f4=Burslu ("buraya isim gir","buraya soyadýný gir")
+f2.isim_cagir()
+f3.kimlik()
+f4.tc_no()
+f4.burs()
+
+
+
+        

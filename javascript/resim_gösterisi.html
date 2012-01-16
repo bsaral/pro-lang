@@ -1,0 +1,17 @@
+<html>
+<body>
+<img src="image/b.png" height="100" weight="300"/>
+<script language="JavaScript">
+resim = new Image();
+resim.src = "image/c.png";
+resim2=new Image();
+resim2.src = "image/a.jpg";
+
+for(i=0;i<=5;i++){
+setTimeout("document.images[0].src=resim.src","2000");
+setTimeout("document.images[0].src=resim2.src","4000");
+}
+
+</script>
+</body>
+</html>

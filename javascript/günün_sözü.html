@@ -1,0 +1,55 @@
+<html>
+<title> GÜNÜN SÖZÜ </title>
+<body>
+
+<h1 align = "center " style="color:purple" > GÜNÜN SÖZÜ </h1>
+<div align = "center" style = "color:darkblue" >
+<script language="JavaScript">
+
+var tarih=new Date();
+
+
+switch (tarih.getDay()){
+
+case 0: document.write ("yarin yapabilecegin isi bugün yapma "+"<br>");
+break;
+case 1: document.write ("insanlar Yorgun Dogar,dinlenmek Icin Yasar,  "+"<br>");
+break;
+case 2: document.write ("Tembellikten Kimse Olmez   "+"<br>");
+break;
+case 3: document.write ("Dinlenen Birini Gorunce Otur Ona Yardim Et "+"<br>");
+break;
+case 4: document.write ("Oturman Mumkunse Ayakta Durma,yatmam Mumkunse Oturma "+"<br>");
+break;
+case 5: document.write ("Calisma Istegi Duyunca Bir Yere Otur Gecmesini Bekle..."+"<br>");
+break;
+case 6: document.write ("Bugunun Isini Yarina Birakma,erteleyebilecegin Kadar Ertele "+"<br>");
+break;
+
+}
+
+
+</script>
+<hr style="color:purple" size="3"/>
+<script>
+var gun,ay;
+a=tarih.getDate();
+b=tarih.getMonth()+1;
+c=tarih.getFullYear();
+if (a<10){
+gun="0"+a;}
+else{
+gun=a;
+}
+
+if (b<10){
+ay="0"+b;}
+else { ay=b;}
+
+document.write("GÜNCELLENME TARÝHÝ :  "+gun+"."+ay+"."+c+" "+" "+tarih.getHours()+":"+tarih.getMinutes()+":"+tarih.getSeconds());
+
+</script>
+
+</div>
+</body>
+</html>

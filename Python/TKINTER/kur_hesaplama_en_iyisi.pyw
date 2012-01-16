@@ -1,10 +1,6 @@
 #-*-coding:utf-8-*-
 # http://www.serbestdoviz.com/
 
-###################################
-## İNTERNET OLMADAN ÇALIŞMAZ !!! ##
-###################################
-
 from Tkinter import *
 from tkMessageBox import *
 import urllib2
@@ -61,21 +57,12 @@ pen4.place(relx=0.32, rely=0.35)
 
 
 
-
 def tl_dolar():
     d=text.find('"usd"')
     e=text.find(">",d)+1
     f=text.find("<",e)
     kur2=float(text[e:f])
 
-    for i in pen1.get():
-        i=str(i)
-        if i == ",":
-            showerror("HATA","LÜTFEN SAYILAR ARASINA VİRGÜL DEĞİL NOKTA KOYUNUZ")
-            pen1.delete(0,END)
-        else:
-            pass
-        
     para2=float(pen1.get())
     son2=para2/kur2
     son2="%.2f"%son2
@@ -90,21 +77,13 @@ def tl_dolar():
         pen4.insert(END,i)
     
     
+
 def tl_euro():
     a=text.find('"euro"')
     b=text.find(">",a)+1
     c=text.find("<",b)
+
     kur=float(text[b:c])
-
-    for i in pen1.get():
-        i=str(i)
-        if i == ",":
-            showerror("HATA","LÜTFEN SAYILAR ARASINA VİRGÜL DEĞİL NOKTA KOYUNUZ")
-            pen1.delete(0,END)
-        else:
-            pass
-
-    
     para=float(pen1.get())
     son=para/kur
     son="%.2f"%son
@@ -121,16 +100,8 @@ def dolar_tl():
     a=text.find('"usd2"')
     b=text.find(">",a)+1
     c=text.find("<",b)
-    kur=float(text[b:c])
 
-    for i in pen2.get():
-        i=str(i)
-        if i == ",":
-            showerror("HATA","LÜTFEN SAYILAR ARASINA VİRGÜL DEĞİL NOKTA KOYUNUZ")
-            pen2.delete(0,END)
-        else:
-            pass
-    
+    kur=float(text[b:c])
     para=float(pen2.get())
     son=para*kur
     son="%.2f"%son
@@ -146,16 +117,8 @@ def dolar_euro():
     d=text.find('"usd2eur"')
     e=text.find(">",d)+1
     f=text.find("<",e)
-    kur2=float(text[e:f])
 
-    for i in pen2.get():
-        i=str(i)
-        if i == ",":
-            showerror("HATA","LÜTFEN SAYILAR ARASINA VİRGÜL DEĞİL NOKTA KOYUNUZ")
-            pen2.delete(0,END)
-        else:
-            pass
-    
+    kur2=float(text[e:f])
     para2=float(pen2.get())
     son4=para2*kur2
     son4="%.2f"%son4
@@ -172,16 +135,8 @@ def euro_tl():
     a=text.find('"eur2o"')
     b=text.find(">",a)+1
     c=text.find("<",b)
-    kur=float(text[b:c])
 
-    for i in pen3.get():
-        i=str(i)
-        if i == ",":
-            showerror("HATA","LÜTFEN SAYILAR ARASINA VİRGÜL DEĞİL NOKTA KOYUNUZ")
-            pen3.delete(0,END)
-        else:
-            pass
-    
+    kur=float(text[b:c])
     para=float(pen3.get())
     son=para*kur
     son="%.2f"%son
@@ -198,17 +153,8 @@ def euro_dolar():
     a=text.find('"eur2usd"')
     b=text.find(">",a)+1
     c=text.find("<",b)
+
     kur=float(text[b:c])
-
-    for i in pen3.get():
-        i=str(i)
-        if i == ",":
-            showerror("HATA","LÜTFEN SAYILAR ARASINA VİRGÜL DEĞİL NOKTA KOYUNUZ")
-            pen3.delete(0,END)
-            
-        else:
-            pass
-
     para=float(pen3.get())
     son=para*kur
     son="%.2f"%son
@@ -219,7 +165,6 @@ def euro_dolar():
     for i in son2:
         i=str(i)
         pen4.insert(END,i)
-
 
 def silemezsin(event=None):
     if event.keysym == "BackSpace" or event.keysym == "Delete":
@@ -319,15 +264,10 @@ pen(0.25,0.8,'"dkk"')
 yazi("Danimarka Kron",0.0,0.8)
 pen (0.51,0.8,'"dkk2"')
 
-yazi_son=Label(text="http://www.serbestdoviz.com/",fg="#336666",
+yazi_son=Label(text="http://www.serbestdoviz.com/",fg="#333333",
                font="Helvatica 9 bold")
 
 yazi_son.pack(side=BOTTOM)
-
-yazi_son2=Label(text="BETÜL SARAL",fg="#333333",
-               font="Helvatica 9 bold")
-
-yazi_son2.pack(side=BOTTOM)
 
 
 

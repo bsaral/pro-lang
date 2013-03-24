@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Form Sayfası</title>
+</head>
+<body style = "background-color:#ffffcc; margin-top:50px;margin-left: 5in;">
+<h1>Bilgilerinizi Giriniz</h1>
+<form action="java_web" method="get"> 
+	<h3>ADINIZ: </h3>
+	<input type="text" name="isim"  size="40px"><br>
+	
+	<h3>SOYADINIZ:</h3>
+	<input type="text" name="soyad"  size="40px"><br>
+	
+	<h3>CİNSİYET</h3>
+	<input type="checkbox" name= "erkek" value = "BAY"> BAY   
+	<input type="checkbox" name= "kiz" value = "BAYAN"> BAYAN
+	
+	<h3>MESLEĞİNİZ</h3>
+	<select style="width: 150px;" name="meslek">
+	<option> seçiniz </option> 
+	<option> Mühendis </option> 
+	<option> Doktor </option> 
+	<option> Öğretmen </option> 
+	<option> Avukat </option> 
+	</select>
+	
+	<h3>MESAJINIZ</h3>
+	<textarea rows="10" cols="40" name="mesaj"> </textarea><br><br>
+	
+	<input type="submit" value="GÖNDER">
+
+</form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>FORM</title>
+<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+</head>
+<body style="background-color:#ff9966">
+<div style = "margin-left:3in;margin-top: 0.5in">
+
+<form action="request_parameter_with.jsp" method="get"> 
+	<h3>ADINIZ: </h3>
+	<input type="text" class="input-medium search-query" name="isim" style = "width: 3in;">
+	
+	<div style = "position: relative;top:-90px;left: 4in;">
+		<h3>SOYADINIZ:</h3>
+		<input type="text" class="input-medium search-query" name="soyad" style = "width: 3in; "  >
+	</div>
+	
+    <div style = "position: relative;top:-50px;left: 50px;"> 
+		<h3>CİNSİYET</h3>
+		<input type="checkbox" name= "check" value = "BAY"> BAY   
+		<input type="checkbox" name= "check" value = "BAYAN"> BAYAN
+	</div>
+	
+	<div style = "position: relative;top:-140px;left: 4in;"> 
+		<h3>MESLEĞİNİZ</h3>
+		<select multiple="multiple" name="meslek">
+		<option> Mühendis </option> 
+		<option> Doktor </option> 
+		<option> Öğretmen </option> 
+		<option> Avukat </option> 
+		</select>
+	</div>
+	
+	<div style = "position: relative;top:-140px;left: 1in;"> 
+	<h3>MESAJINIZ</h3>
+	<textarea rows="10" cols="40" name="mesaj"> </textarea><br><br>
+	</div>
+    
+	<input type="submit" class="btn btn-large btn-success" value="GÖNDER" style = "position: relative;top:-3in;left: 4in;">
+
+</form>
+</div>
+</body>
+</html>

@@ -17,7 +17,7 @@ for n=1:length(stats)
        count = count + 5;
     end
 end
-figure,title(['Toplam para miktari = ',num2str(count)])
+title(['Toplam para miktari = ',num2str(count)])
    
 
     

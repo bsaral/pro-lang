@@ -1,5 +1,5 @@
 % Toplam para miktarini bulma 
-% Buyuk madeni para degeri = 10, kuçuk =  5
+% Buyuk madeni para degeri = 10, kucuk =  5
 
 
 

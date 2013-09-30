@@ -1,4 +1,4 @@
-   % Turk Lirasý Hesabi
+   % Turk Lirasi Hesabi
    
    img = imread('pictures\image3.png');
     th = graythresh(img);
@@ -28,7 +28,7 @@
     end
 
    subplot(1,3,1), imshow(img)
-   title(['Toplam para miktarý = ',num2str(count),' TL'])
+   title(['Toplam para miktari = ',num2str(count),' TL'])
    subplot(1,3,2), imshow(bw)
    subplot(1,3,3), imshow(bw2)
   

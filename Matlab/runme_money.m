@@ -1,7 +1,8 @@
 % Toplam para miktarini bulma 
 % Buyuk madeni para degeri = 10, kucuk =  5
 
-
+clc
+clear
 
 img = imread('coins.png');
 bwimg = im2bw(img);

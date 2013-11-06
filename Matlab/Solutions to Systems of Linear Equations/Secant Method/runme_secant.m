@@ -1,6 +1,6 @@
 clc
 clear
-format long 
+
 
 % Secant Yöntemi %
 

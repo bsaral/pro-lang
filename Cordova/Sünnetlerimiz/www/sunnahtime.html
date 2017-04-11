@@ -1,0 +1,27 @@
+
+<div data-role="page" id= "getsunnah">
+
+    <div data-role="header">
+        <a  href="index.html" class="ui-btn ui-icon-home ui-btn-icon-left">Ana Sayfa</a>
+        <h1>Sünnetler</h1>
+      </div>
+
+      <div data-role="main"  class="ui-content">
+      	<br>
+      	<div  style="background-color: #f7f5f2; margin-left: 20px;margin-right: 20px;border-radius: 18px 24px 24px 24px;-moz-border-radius: 18px 24px 24px 24px;-webkit-border-radius: 18px 24px 24px 24px;border: 0px solid #000000; -webkit-box-shadow: 0 4px 10px 1px #222;-moz-box-shadow: 0 4px 10px 1px #222;box-shadow: 0 4px 10px 1px #222;">
+		  <div style="padding-left: 20px;padding-top: 10px;padding-right: 20px;padding-bottom: 10px;">
+		     <p>Sünneti Uygulayacağınız Tarih Aralıklarını Giriniz</p>
+	           
+		  </div>
+		</div>
+	
+      	<br><br>
+      	
+        <label for="text-basic">Bitiş Tarihi</label>
+        <input type="text" name="endtime" data-role="datebox" data-options='{"mode": "calbox", "useNewStyle":true}' id="endtime" value="" >
+        <br/>
+        <input type="button" onclick="javascript:updateSunnahTime();" data-mini="true" value="Kaydet" style="background-color: #186300">
+    
+      </div>
+</div>
+

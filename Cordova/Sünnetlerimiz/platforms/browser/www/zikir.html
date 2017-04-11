@@ -1,0 +1,44 @@
+<div data-role="page" id="setPray">
+    <div data-role="header">
+        <a  href="index.html" class="ui-btn ui-icon-home ui-btn-icon-left">Ana Sayfa</a>
+        <h1>Günlük Zikir</h1>
+    </div>
+    <br><br>
+    <img src ="img/bsm.png" style="max-width: 100%;max-height:80px;float:right;margin-left:50px"/>
+    <br/><br/><br/><br/><br/>
+
+    <div  style="background-color: #ffebc4; margin-left: 20px;margin-right: 20px;border-radius: 61px 61px 61px 61px;
+-moz-border-radius: 61px 61px 61px 61px;-webkit-border-radius: 61px 61px 61px 61px;border: 0px solid #b8b8b8;-webkit-box-shadow: 0 4px 10px 1px #222;-moz-box-shadow: 0 4px 10px 1px #222;box-shadow: 0 4px 10px 1px #222;">
+	  <div style="padding-left: 20px;padding-top: 20px;padding-right: 20px;padding-bottom: 20px;">
+	     <b>“… Bilesiniz ki, kalpler ancak Allah’ın zikriyle mutmain olur (Allah’ı anmakla sükûnet bulur).” (Ra’d, 13/28) </b>
+            
+	  </div>
+	</div>
+	<br>
+	<div  style="background-color: #f5e8ff; margin-left: 20px;margin-right: 20px;border-radius: 61px 61px 61px 61px;
+-moz-border-radius: 61px 61px 61px 61px;-webkit-border-radius: 61px 61px 61px 61px;border: 0px solid #b8b8b8; -webkit-box-shadow: 0 4px 10px 1px #222;-moz-box-shadow: 0 4px 10px 1px #222;box-shadow: 0 4px 10px 1px #222;">
+	  <div style="padding-left: 20px;padding-top: 20px;padding-right: 20px;padding-bottom: 20px;">
+	     <b>“Öyleyse siz Beni zikredin ki Ben de sizi anayım. Bana şükredin, sakın nankörlük etmeyin.” (Bakara, 2/152)</b>
+           
+	  </div>
+	</div>
+	<br>
+
+	<div data-role="main" class="ui-content">
+        <p>
+            <a onclick="getZikir()" style="text-decoration: none"><button data-icon="check" style="background-color: #CCFF99">Günün Zikri</button></a>
+        </p>
+        <br><br>
+        <div id = "zikirbox" style="display: none">
+	        <div style="background-color: #FFFFCC; margin-left: 20px;margin-right: 20px;border-radius: 92px 10px 92px 10px;-moz-border-radius: 92px 10px 92px 10px;-webkit-border-radius: 92px 10px 92px 10px;border: 0px solid #b8b8b8;-webkit-box-shadow: 0 4px 10px 1px #222;-moz-box-shadow: 0 4px 10px 1px #222;box-shadow: 0 4px 10px 1px #222;">
+			  <div style="padding-left: 20px;padding-top: 40px;padding-right: 20px;padding-bottom: 20px;">
+			     <b id="zikirname"></b>
+			     <p id="zikirdesc"></p>
+			  </div>
+			</div>
+		</div>
+    </div>
+    
+    
+</div>
+

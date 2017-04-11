@@ -1,0 +1,39 @@
+<div data-role="page" id= "sunnah">
+    <div data-role="header">
+        <a  href="index.html" class="ui-btn ui-icon-home ui-btn-icon-left">Ana Sayfa</a>
+        <h1>  Uygulanacak Sünnet</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+    	<br/><br/><br/>
+        <div id="clockdiv" style="max-width: 100%">
+          <div>
+            <span class="days"></span>
+            <div class="smalltext">Gün</div>
+          </div>
+          <div>
+            <span class="hours"></span>
+            <div class="smalltext">Saat</div>
+          </div>
+          <div>
+            <span class="minutes"></span>
+            <div class="smalltext">Dakika</div>
+          </div>
+          <div>
+            <span class="seconds"></span>
+            <div class="smalltext">Saniye</div>
+          </div>
+        </div>
+        
+        <br/><br/><br/>
+
+        <div  style="background-color: #f7f5f2; margin-left: 20px;margin-right: 20px;border-radius: 18px 24px 24px 24px;-moz-border-radius: 18px 24px 24px 24px;-webkit-border-radius: 18px 24px 24px 24px;border: 0px solid #000000; -webkit-box-shadow: 0 4px 10px 1px #222;-moz-box-shadow: 0 4px 10px 1px #222;box-shadow: 0 4px 10px 1px #222;">
+		  <div style="padding-left: 20px;padding-top: 10px;padding-right: 20px;padding-bottom: 10px;text-align: center">
+		     <b id="getsunnahtext"></b>
+	           
+		  </div>
+		</div>
+        <br><br>
+        <a onclick="resetSunnah();" style="text-decoration: none"><button data-icon="delete" style="background-color: #00BF96;color : white;">Yeni Sünnet Getir</button></a>
+    </div>
+</div>

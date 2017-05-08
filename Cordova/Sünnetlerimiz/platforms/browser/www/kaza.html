@@ -1,1 +1,50 @@
-kaza.html
+<div data-role="page" id= "kaza">
+
+    <div data-role="header">
+        <a  href="index.html" class="ui-btn ui-icon-home ui-btn-icon-left">Ana Sayfa</a>
+        <h1>Kaza Takip</h1>
+      </div>
+
+      <div data-role="main" id="kazalar" class="ui-content">
+      	<br>
+      	<ul data-role="listview" data-split-icon="minus" data-theme="a" data-inset="true" data-count-theme="b"  >
+      		<li data-role="list-divider">Namaz Takip</li>
+		    <li >
+		        <a onclick="addNamaz('sabah')"><img src="img/plus.png" style="margin-top:5px" class="ui-li-icon ui-corner-none"><h3>Sabah Namazı</h3><span class="ui-li-count" id="sabah">0</span></a>
+		        <a style="background-color:#f8dada" onclick="deleteNamaz('sabah')"></a>
+		         
+		    </li>
+		    <li>
+		         <a onclick="addNamaz('ogle')"><img src="img/plus.png" style="margin-top:5px" class="ui-li-icon ui-corner-none"><h3>Öğle Namazı</h3><span class="ui-li-count" id="ogle">0</span></a>
+		        <a style="background-color:#f8dada" onclick="deleteNamaz('ogle')"></a>
+		    </li>
+		    <li>
+		        <a onclick="addNamaz('ikindi')"><img src="img/plus.png" style="margin-top:5px" class="ui-li-icon ui-corner-none"><h3>İkindi Namazı</h3><span class="ui-li-count" id="ikindi">0</span></a>
+		        <a style="background-color:#f8dada" onclick="deleteNamaz('ikindi')"></a>
+		    </li>
+		    <li>
+		         <a onclick="addNamaz('aksam')"><img src="img/plus.png" style="margin-top:5px" class="ui-li-icon ui-corner-none"><h3>Akşam Namazı</h3><span class="ui-li-count" id="aksam">0</span></a>
+		        <a style="background-color:#f8dada" onclick="deleteNamaz('aksam')"></a>
+		    </li>
+		    <li>
+		         <a onclick="addNamaz('yatsi')"><img src="img/plus.png" style="margin-top:5px" class="ui-li-icon ui-corner-none"><h3>Yatsı Namazı</h3><span class="ui-li-count" id="yatsi">0</span></a>
+		        <a style="background-color:#f8dada" onclick="deleteNamaz('yatsi')"></a>
+		    </li>
+		</ul>
+
+		<br>
+
+		<ul data-role="listview" data-split-icon="minus" data-theme="a" data-inset="true" data-count-theme="b"  >
+      		<li data-role="list-divider">Oruç Takip</li>
+		    <li >
+		        <a onclick="addNamaz('oruc')"><img src="img/plus.png" style="margin-top:5px" class="ui-li-icon ui-corner-none"><h3>Toplam Kaza Sayısı</h3><span class="ui-li-count" id="oruc">0</span></a>
+		        <a style="background-color:#f8dada" onclick="deleteNamaz('oruc')"></a>
+		         
+		    </li>
+		</ul>
+    
+      </div>
+</div>
+
+
+

@@ -1,6 +1,6 @@
-
 var list = [];
 var x;
+
 function getAllZikir(){
 	db.transaction(function(tx) {
         tx.executeSql("select * from zikirler ", [], function(tx,res){
@@ -28,16 +28,22 @@ function getZikir(){
 
 function updateSunnahTime(){
     var endtime = new Date(document.getElementById("endtime").value);
-    db.transaction(function(tx) {
-        tx.executeSql("INSERT INTO selectedsunnah (endtime) VALUES (?)", [endtime], function(tx,res){
-            console.log("zaman kaydedildi")
-            getRandomSunnah();
-            $.mobile.changePage("getsunnah.html")
+    var countDownDate = endtime.getTime();
+    var now = new Date().getTime();
+    if(countDownDate < now){
+        $.simplyToast('Eski Tarihler Seçilemez', 'danger');
+    }else{
+        db.transaction(function(tx) {
+            tx.executeSql("INSERT INTO selectedsunnah (endtime) VALUES (?)", [endtime], function(tx,res){
+                console.log("zaman kaydedildi")
+                getRandomSunnah();
+                $.mobile.changePage("getsunnah.html",{ transition: "flip"})
+            });
+        }, function(err){
+            console.log(err);
+            alert("Zaman Kaydedilemedi");
         });
-    }, function(err){
-        console.log(err);
-        alert("Zaman Kaydedilemedi");
-    });
+    }
 }
 
 function getRandomSunnah(){
@@ -76,14 +82,14 @@ function getTime(time){
 	var countDownDate = new Date(time).getTime();
 	x = setInterval(function() {
 	  var now = new Date().getTime();
-	  var distance = countDownDate - now;
+      var distance = countDownDate - now;
 
-	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-	  var clock = document.getElementById("clockdiv");
+      var clock = document.getElementById("clockdiv");
 	  var daysSpan = clock.querySelector('.days');
 	  var hoursSpan = clock.querySelector('.hours');
 	  var minutesSpan = clock.querySelector('.minutes');
@@ -96,7 +102,8 @@ function getTime(time){
 	  
 	  if (distance < 0) {
 	    clearInterval(x);
-	    document.getElementById("clockdiv").innerHTML = "EXPIRED";
+        $.simplyToast('Süreniz Dolmuştur. Lütfen Yeni Bir Sünnet Seçiniz', 'warning');
+        resetSunnah();
 	  }
 	}, 1000);
 }
@@ -105,15 +112,15 @@ function getSunnah(){
 	db.transaction(function(tx) {
         tx.executeSql("SELECT * FROM selectedsunnah ", [], function(tx,res){
             if(res.rows.length !== 0){
-            	$.mobile.changePage("getsunnah.html")
+            	$.mobile.changePage("getsunnah.html",{ transition: "flip"})
             	setTimeout(function(){getRandomSunnah();}, 500);
             }else{
-            	$.mobile.changePage("sunnahtime.html")
+            	$.mobile.changePage("sunnahtime.html",{ transition: "flip"})
             }
         });
     }, function(err){
         console.log(err);
-        $.mobile.changePage("sunnahtime.html")
+        $.mobile.changePage("sunnahtime.html",{ transition: "flip"})
     });
 }
 
@@ -122,13 +129,101 @@ function resetSunnah(){
         tx.executeSql("DELETE FROM selectedsunnah", [], function(tx,res){
             console.log("seçilen sünnet silindi")
             clearInterval(x);
-            $.mobile.changePage("sunnahtime.html")
+            $.mobile.changePage("sunnahtime.html",{ transition: "flip"})
         });
     }, function(err){
         console.log(err);
-        alert("seçilen sünnet silinemedi");
+        $.simplyToast('Seçilen Sünnet Seçilemedi', 'danger');
     });
 }
+
+function getKaza(){
+    $.mobile.changePage("kaza.html",{ transition: "flip"})
+    setTimeout(function(){getKazalar();}, 500);
+}
+
+function getKazalar(){
+    db.transaction(function(tx) {
+        tx.executeSql("SELECT * FROM kazalar", [], function(tx,res){
+            console.log("kaza kaydedildi")
+            if(res.rows.length !== 0){
+                _.values(res.rows).forEach(function(obj){
+                    document.getElementById(obj.name).textContent= obj.count.toString();
+                });
+            }
+        });
+    }, function(err){
+        console.log(err);
+        $.simplyToast('Kazalar Getirilemedi', 'danger');
+    });
+}
+
+function addNamaz(name){
+    db.transaction(function(tx) {
+        tx.executeSql("SELECT * FROM kazalar WHERE name=?", [name], function(tx,res){
+            if(res.rows.length === 0){
+                db.transaction(function(tx) {
+                    tx.executeSql("INSERT INTO kazalar (name,count) VALUES (?,?)", [name,1], function(tx,res){
+                        console.log("kaza kaydedildi")
+                        document.getElementById(name).innerHTML = "1"
+                    });
+                }, function(err){
+                    console.log(err);
+                    $.simplyToast('Kaza Kaydedilemedi', 'danger');
+                });
+            }else{
+                db.transaction(function(tx) {
+                    tx.executeSql("UPDATE kazalar SET count = count + 1 WHERE name=?", [name], function(tx,res2){
+                        db.transaction(function(tx) {
+                            tx.executeSql("SELECT count FROM kazalar WHERE name=?", [name], function(tx,res3){
+                                document.getElementById(name).innerHTML = res3.rows[0].count
+                            });
+                        }, function(err){
+                            console.log(err);
+                            $.simplyToast('Kaza Kaydedilemedi', 'danger');
+                        });
+                    });
+                }, function(err){
+                    console.log(err);
+                    $.simplyToast('Kaza Kaydedilemedi', 'danger');
+                });
+            }
+        });
+    }, function(err){
+        console.log(err);
+        $.simplyToast('Kazalar Getirilemedi', 'danger');
+    });
+}
+
+function deleteNamaz(name){
+    db.transaction(function(tx) {
+        tx.executeSql("SELECT * FROM kazalar WHERE name=?", [name], function(tx,res){
+            console.log(res.rows);
+            if(res.rows.length !== 0){
+                db.transaction(function(tx) {
+                    tx.executeSql("UPDATE kazalar SET count = count - 1 WHERE name=? AND count != ?", [name,0], function(tx,res2){
+                        db.transaction(function(tx) {
+                            tx.executeSql("SELECT count FROM kazalar WHERE name=?", [name], function(tx,res3){
+                                document.getElementById(name).innerHTML = res3.rows[0].count
+                            });
+                        }, function(err){
+                            console.log(err);
+                            $.simplyToast('Kaza Kaydedilemedi', 'danger');
+                        });
+                    });
+                }, function(err){
+                    console.log(err);
+                    $.simplyToast('Kaza Kaydedilemedi', 'danger');
+                });   
+            }
+        });
+    }, function(err){
+        console.log(err);
+        $.simplyToast('Kazalar Getirilemedi', 'danger');
+    });
+}
+
+
 
 
 

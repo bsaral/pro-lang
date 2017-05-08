@@ -18,10 +18,19 @@
         },
         "cordova-plugin-datepicker": {
             "PACKAGE_NAME": "com.example.sunnah"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.example.sunnah"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.example.sunnah"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.example.sunnah"
+        },
+        "cordova-plugin-app-event": {
             "PACKAGE_NAME": "com.example.sunnah"
         }
     }

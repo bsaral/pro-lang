@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <meta name="format-detection" content="telephone=no">
-        <meta charset=utf-8>
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
         <link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" />
         <link rel="stylesheet" href="css/flipclock.css">
+        <link rel="stylesheet" href="css/simply-toast.css">
         <title> sünneti seniyyeleri</title>
     </head>
-    <body >
+    <body>
+        
         <div data-role="page" id="home">
             <div data-role="header">
                 <h1>Sünneti Seniyyeler</h1>
@@ -29,11 +28,14 @@
                     <a  onclick="getSunnah();" style="text-decoration: none"><button data-icon="bullets" style="background-color: #d3decc">Sünnetler</button></a>
 
                     <a href="zikir.html" style="text-decoration: none"><button data-icon="check" style="background-color: hsla(343, 28%, 54%, 0.18)">Günlük Zikir</button></a>
+
+                    <a onclick="getKaza();" style="text-decoration: none"><button data-icon="edit" style="background-color: #ecf4cd">Kaza Takip</button></a>
+                    
                 </p>
             </div>
         </div>
 
-
+        
         <script src="js/3rdparty/jquery-2.1.4.min.js"></script>
         <script src="js/3rdparty/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
@@ -41,11 +43,12 @@
         <script type="text/javascript" src="  http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
         
         <script src="js/3rdparty/flipclock.min.js"></script>
+        <script src="js/3rdparty/simply-toast.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/3rdparty/lodash.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/database.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
-        
-
+        <script type="text/javascript" charset="utf-8" src="js/functions.js"></script>
+       
     </body>
    
 </html>

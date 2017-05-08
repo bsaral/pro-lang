@@ -44,6 +44,14 @@ function createDatabaseAndTables(){
     	console.log(tx)
         alert("Zikir tablosu oluşmadı");
     });
+
+    db.transaction(function(tx) {
+        tx.executeSql("CREATE TABLE IF NOT EXISTS kazalar (name text unique primary key, count number)");
+        //deleteKaza();
+    }, function(err){
+        console.log(tx)
+        alert("Kaza tablosu oluşmadı");
+    });
 }
 
 function loadSunnah(){
@@ -67,9 +75,9 @@ function loadSunnah(){
     });
 }
 
-/*function deleteZikir(){
+function deleteKaza(){
 	db.transaction(function(tx) {
-        tx.executeSql("DROP TABLE selectedsunnah",[], function(tx,res){
+        tx.executeSql("DROP TABLE kazalar",[], function(tx,res){
         	console.log(res)
         	
         });
@@ -77,7 +85,7 @@ function loadSunnah(){
     	console.log(err);
         alert("Veritabanı Problemi")
     });
-}*/
+}
 
 function loadZikir(){
 	db.transaction(function(tx) {
@@ -100,6 +108,8 @@ function loadZikir(){
         alert("Veritabanı Problemi")
     });
 }
+
+
 
 createDatabaseAndTables();
 
